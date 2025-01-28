@@ -113,8 +113,15 @@ function calcWeek() {
     fetchRecipe(fruitSize.fruit);
 
     // Show popup alert if 36 weeks
-    if (week + 1 === 36) {
-      showPopup();
+    if (week + 1 >= 36) {
+      showPopup(
+        './images/5709917-hd_1920_1080_25fps.mp4',
+        'Congratulations! 🎉 You Made It!'
+      );
+    } else if (week + 1 >= 28 && week + 1 < 36) {
+      showPopup('./images/vid2.mp4', 'Keep Going!');
+    } else if (week + 1 >= 14 && week + 1 < 28) {
+      showPopup('./images/vid3.mp4', 'You Are Doing A Great Job!');
     }
   } else {
     result.textContent = 'The selected date is in the future.';
@@ -122,14 +129,14 @@ function calcWeek() {
   }
 }
 
-function showPopup() {
+function showPopup(vid, msg) {
   const popup = document.createElement('div');
   popup.id = 'popup';
   popup.innerHTML = `
       <div class="popup-content">
-        <h2>Congratulations! 🎉 You are at 36 weeks!</h2>
+        <h2>${msg}!</h2>
         <video id="celebrationVideo" autoplay loop>
-          <source src="images/5709917-hd_1920_1080_25fps.mp4" type="video/mp4">
+          <source src="${vid}" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div>
