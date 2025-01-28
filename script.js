@@ -25,7 +25,7 @@ const fruitSizes = [
   { week: 18, fruit: 'Pomegranate', img: 'images/15.jpg' },
   { week: 19, fruit: 'Grapefruit', img: 'images/16.jpg' },
   { week: 20, fruit: 'Mango', img: 'images/17.jpg' },
-  { week: 21, fruit: 'Watermelon', img: 'images/18.jpg' },
+  { week: 21, fruit: 'Melon', img: 'images/18.jpg' },
   { week: 22, fruit: 'Eggplant', img: 'images/19.jpg' },
   { week: 25, fruit: 'Papaya', img: 'images/20.jpg' },
   { week: 29, fruit: 'Pumpkin', img: 'images/21.jpg' },
@@ -101,6 +101,7 @@ function calcWeek() {
     result.textContent = `You are in week ${
       week + 1
     } of your pregnancy. Your baby is the size of a ${fruitSize.fruit}.`;
+
     if (fruitSize.img) {
       fruitImage.src = fruitSize.img;
       fruitImage.alt = fruitSize.fruit;
@@ -108,9 +109,38 @@ function calcWeek() {
     } else {
       fruitImage.style.display = 'none';
     }
+
     fetchRecipe(fruitSize.fruit);
+
+    // Show popup alert if 36 weeks
+    if (week + 1 === 36) {
+      showPopup();
+    }
   } else {
     result.textContent = 'The selected date is in the future.';
     fruitImage.style.display = 'none';
   }
+}
+
+function showPopup() {
+  const popup = document.createElement('div');
+  popup.id = 'popup';
+  popup.innerHTML = `
+      <div class="popup-content">
+        <h2>Congratulations! 🎉 You are at 36 weeks!</h2>
+        <video id="celebrationVideo" autoplay loop>
+          <source src="images/5709917-hd_1920_1080_25fps.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div>
+        <button onclick="closePopup()">OK</button>
+        </div>
+      </div>
+    `;
+
+  document.body.appendChild(popup);
+}
+
+function closePopup() {
+  document.getElementById('popup').remove();
 }

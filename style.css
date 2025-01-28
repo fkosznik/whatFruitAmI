@@ -2,7 +2,7 @@
 body {
   font-family: 'Poppins', sans-serif;
   background-image: url('./images/bg.jpg');
-  background-size: 100%;
+  background-size: cover;
   color: #b75070;
   text-align: center;
   padding: 1.6rem;
@@ -27,6 +27,7 @@ input[type='date'] {
   border: 2px solid #e888a7;
   border-radius: 5px;
   background-color: #f4e0e6;
+
   color: #be3e67;
 }
 
@@ -90,9 +91,11 @@ button:hover {
 /* Responsive design */
 @media (max-width: 600px) {
   body {
+    display: flex;
+    flex-direction: column;
     background-image: url(./images/bgm.jpg);
 
-    margin-left: 15rem;
+    margin-left: 10rem;
   }
   h1 {
     font-size: 2rem;
@@ -110,4 +113,55 @@ button:hover {
 }
 #fruitImage {
   mix-blend-mode: multiply;
+}
+/* Popup styles */
+#popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.popup-content video {
+  width: 100%;
+  max-width: 300px; /* Adjust size */
+  border-radius: 10px;
+  margin: 10px 0;
+}
+
+.popup-content {
+  background: #f2ced9;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
+}
+
+.popup-content h2 {
+  color: #be3e67;
+}
+
+.popup-content img {
+  width: 200px;
+  height: auto;
+  margin: 10px 0;
+}
+
+.popup-content button {
+  padding: 1rem 1rem;
+  position: relative;
+  background: #be3e67;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.popup-content button:hover {
+  background: #e62462;
 }
