@@ -25,7 +25,7 @@ const fruitSizes = [
   { week: 18, fruit: 'Pomegranate', img: 'images/15.jpg' },
   { week: 19, fruit: 'Grapefruit', img: 'images/16.jpg' },
   { week: 20, fruit: 'Mango', img: 'images/17.jpg' },
-  { week: 21, fruit: 'Rockmelon', img: 'images/18.jpg' },
+  { week: 21, fruit: 'Watermelon', img: 'images/18.jpg' },
   { week: 22, fruit: 'Eggplant', img: 'images/19.jpg' },
   { week: 25, fruit: 'Papaya', img: 'images/20.jpg' },
   { week: 29, fruit: 'Pumpkin', img: 'images/21.jpg' },
