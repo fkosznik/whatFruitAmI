@@ -1,0 +1,113 @@
+/* General styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-image: url('./images/bg.jpg');
+  background-size: 100%;
+  color: #b75070;
+  text-align: center;
+  padding: 1.6rem;
+}
+
+/* Header */
+h1 {
+  font-size: 2.5rem;
+  color: #be3e67;
+  margin-bottom: 2rem;
+}
+
+/* Input section */
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+input[type='date'] {
+  padding: 1rem;
+  font-size: 1rem;
+  border: 2px solid #e888a7;
+  border-radius: 5px;
+  background-color: #f4e0e6;
+  color: #be3e67;
+}
+
+button {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #be3e67;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #d70f4e;
+}
+
+/* Result section */
+#result {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 1.5rem;
+}
+
+/* Fruit image */
+#fruitImage {
+  margin-top: 1rem;
+  width: 20rem;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Recipe section */
+#recipe {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 1.6rem;
+}
+
+#recipeLink {
+  display: flex;
+  width: 6rem;
+  text-align: center;
+
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.5rem 1rem;
+  background-color: #be3e67;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+#recipeLink:hover {
+  background-color: #ea1257;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  body {
+    background-image: url(./images/bgm.jpg);
+
+    margin-left: 15rem;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+
+  input[type='date'],
+  button {
+    width: 90%;
+    margin-top: 5px;
+  }
+
+  #fruitImage {
+    width: 10rem;
+  }
+}
+#fruitImage {
+  mix-blend-mode: multiply;
+}

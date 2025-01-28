@@ -8,16 +8,16 @@ const recipeText = document.querySelector('#recipe');
 const recipeLink = document.querySelector('#recipeLink');
 
 const fruitSizes = [
-  { week: 4, fruit: 'Poppy seed', img: 'images/1.jpg' },
-  { week: 5, fruit: 'Sesame seed', img: 'images/2.jpg' },
-  { week: 6, fruit: 'Lentil seed', img: 'images/3.jpg' },
+  { week: 4, fruit: 'Poppy_seed', img: 'images/1.jpg' },
+  { week: 5, fruit: 'Sesame_seed', img: 'images/2.jpg' },
+  { week: 6, fruit: 'Lentil_seed', img: 'images/3.jpg' },
   { week: 7, fruit: 'Blueberry', img: 'images/4.jpg' },
   { week: 8, fruit: 'Raspberry', img: 'images/5.jpg' },
   { week: 9, fruit: 'Grape', img: 'images/6.jpg' },
   { week: 10, fruit: 'Date', img: 'images/7.jpg' },
   { week: 11, fruit: 'Lime', img: 'images/8.jpg' },
-  { week: 12, fruit: 'Plum', img: 'images/9.jpg' },
-  { week: 13, fruit: 'Kiwi fruit', img: 'images/10.jpg' },
+  { week: 12, fruit: 'Lemon', img: 'images/9.jpg' },
+  { week: 13, fruit: 'Kiwi_fruit', img: 'images/10.jpg' },
   { week: 14, fruit: 'Peach', img: 'images/11.jpg' },
   { week: 15, fruit: 'Pear', img: 'images/12.jpg' },
   { week: 16, fruit: 'Avocado', img: 'images/13.jpg' },
@@ -44,6 +44,26 @@ async function fetchRecipe(fruit) {
       const meal = data.meals[0]; // Get the first recipe
       recipeText.textContent = `Try this recipe: ${meal.strMeal}`;
       recipeLink.href = `https://www.themealdb.com/meal/${meal.idMeal}`;
+      recipeLink.textContent = 'View Recipe';
+      recipeLink.style.display = 'block';
+    } else if (!data.meals && fruit === 'Watermelon') {
+      recipeText.textContent = `Try this recipe: Celebrate Summer with Watermelon, Feta, and Mint Salad`;
+      recipeLink.href = `https://www.allrecipes.com/watermelon-feta-and-mint-salad-recipe-7511300`;
+      recipeLink.textContent = 'View Recipe';
+      recipeLink.style.display = 'block';
+    } else if (!data.meals && fruit === 'Papaya') {
+      recipeText.textContent = `Try this recipe: Papaya Bruschetta`;
+      recipeLink.href = `https://www.allrecipes.com/recipe/68839/papaya-bruschetta/`;
+      recipeLink.textContent = 'View Recipe';
+      recipeLink.style.display = 'block';
+    } else if (!data.meals && fruit === 'Eggplant') {
+      recipeText.textContent = `Try this recipe: Roasted Eggplant`;
+      recipeLink.href = `https://www.allrecipes.com/roasted-eggplant-recipe-6737745`;
+      recipeLink.textContent = 'View Recipe';
+      recipeLink.style.display = 'block';
+    } else if (!data.meals && fruit === 'Mango') {
+      recipeText.textContent = `Try this recipe: Summertime Mango Drink`;
+      recipeLink.href = `https://www.allrecipes.com/recipe/259088/summertime-mango-drink/`;
       recipeLink.textContent = 'View Recipe';
       recipeLink.style.display = 'block';
     } else {
