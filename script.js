@@ -4,6 +4,8 @@ const submit = document.querySelector('#submit');
 const input = document.querySelector('#input');
 const result = document.querySelector('#result');
 const fruitImage = document.querySelector('#fruitImage');
+const recipeText = document.querySelector('#recipe');
+const recipeLink = document.querySelector('#recipeLink');
 
 const fruitSizes = [
   { week: 4, fruit: 'Poppy seed', img: 'images/1.jpg' },
@@ -19,7 +21,7 @@ const fruitSizes = [
   { week: 14, fruit: 'Peach', img: 'images/11.jpg' },
   { week: 15, fruit: 'Pear', img: 'images/12.jpg' },
   { week: 16, fruit: 'Avocado', img: 'images/13.jpg' },
-  { week: 17, fruit: 'Naval orange', img: 'images/14.jpg' },
+  { week: 17, fruit: 'Orange', img: 'images/14.jpg' },
   { week: 18, fruit: 'Pomegranate', img: 'images/15.jpg' },
   { week: 19, fruit: 'Grapefruit', img: 'images/16.jpg' },
   { week: 20, fruit: 'Mango', img: 'images/17.jpg' },
@@ -30,6 +32,29 @@ const fruitSizes = [
   { week: 33, fruit: 'Honeydew', img: 'images/22.jpg' },
   { week: 37, fruit: 'Watermelon', img: 'images/23.jpg' },
 ];
+
+async function fetchRecipe(fruit) {
+  try {
+    const response = await fetch(
+      `https://www.themealdb.com/api/json/v1/1/filter.php?i=${fruit}`
+    );
+    const data = await response.json();
+
+    if (data.meals) {
+      const meal = data.meals[0]; // Get the first recipe
+      recipeText.textContent = `Try this recipe: ${meal.strMeal}`;
+      recipeLink.href = `https://www.themealdb.com/meal/${meal.idMeal}`;
+      recipeLink.textContent = 'View Recipe';
+      recipeLink.style.display = 'block';
+    } else {
+      recipeText.textContent = 'No recipe found for this fruit.';
+      recipeLink.style.display = 'none';
+    }
+  } catch (error) {
+    recipeText.textContent = 'Error fetching recipe.';
+    recipeLink.style.display = 'none';
+  }
+}
 
 function calcWeek() {
   const inputDate = new Date(input.value);
@@ -63,6 +88,7 @@ function calcWeek() {
     } else {
       fruitImage.style.display = 'none';
     }
+    fetchRecipe(fruitSize.fruit);
   } else {
     result.textContent = 'The selected date is in the future.';
     fruitImage.style.display = 'none';
